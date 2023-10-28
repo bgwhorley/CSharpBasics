@@ -31,6 +31,7 @@ namespace CSharpBasics
             str.stringInterpolation(1999, "Jeep", "Cherokee", 89000, 9000);
 
             str.stringBuilderExample();
+            str.stringParsing();
 
         }
 

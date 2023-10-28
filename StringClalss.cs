@@ -104,5 +104,57 @@ namespace ConsoleApp3
             Console.WriteLine(sb.ToString());
             Console.WriteLine($"Capacity: {sb.Capacity}; Length: {sb.Length}");
         }
+
+        // string has the ability to parse into numbers
+        public void stringParsing()
+        {
+            string numstr1 = "1";
+            string numstr2 = "2.00";
+            string numstr3 = "3,000";
+            string numstr4 = "4,000.00";
+
+            int targetNum = 0;
+
+            try
+            {
+                // Use parse to try a simple integer
+                targetNum = int.Parse(numstr1);
+                Console.WriteLine(targetNum);
+
+                // Use parse to try a floating point number
+                // this only works if the decimal value is 0
+                targetNum = int.Parse(numstr2, System.Globalization.NumberStyles.Float);
+                Console.WriteLine(targetNum);
+
+                // Use Parse to try a number with thousands marker
+                targetNum = int.Parse(numstr3, System.Globalization.NumberStyles.AllowThousands);
+                Console.WriteLine(targetNum);
+
+                // Use parse to try a number with thousands marker AND decimal
+                targetNum = int.Parse(numstr4, System.Globalization.NumberStyles.Float | System.Globalization.NumberStyles.AllowThousands);
+                Console.WriteLine(targetNum);
+
+                // string parse also works for other types like boolean
+                Console.WriteLine($"{bool.Parse("True")}");
+
+                // or float, note that format specifiers can be added
+                Console.WriteLine($"{float.Parse("1.00"):F2}");
+
+            } catch (Exception e) {
+                Console.WriteLine("encountered exception in stringParsing method");
+            }
+
+            // it is also possible to  forego writing a try catch block by using TryParse
+            // which returns the parsed value into an "out" parameter
+
+            bool succeeded = false;
+            succeeded = Int32.TryParse(numstr1, out targetNum);
+
+            if(succeeded)
+            {
+                Console.WriteLine($"TryParse returned: {targetNum}");
+            }
+
+        }
     }
 }
