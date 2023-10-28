@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,40 @@ using System.Threading.Tasks;
 
 namespace CSharpBasics
 {
-    internal class Class1
+    internal class CSBasics
     {
         static void Main(string[] args)
         {
+
+            executeBasics();
+
+            //instantiate the StringClass instance to call its methods
+            StringClass str = new StringClass();
+            Console.WriteLine("\n\n");
+            Console.WriteLine("Printing the string length of the string \"four\"");
+            Console.WriteLine(str.stringLength("four"));
+
+            str.printCharacters("test");
+
+            string[] s1 = {"one",  "two", "three",  "four"};
+            Console.WriteLine("\n\n");
+            Console.WriteLine("joining the four strings and printing the output");
+            Console.WriteLine(str.joinStrings(s1));
+
+            str.formatString(4);
+            str.stringInterpolation(1999, "Jeep", "Cherokee", 89000, 9000);
+
+            str.stringBuilderExample();
+
+        }
+
+        public static void executeBasics()
+        {
             //Basic console interaction
-            Console.WriteLine("Hello world!");
-            Console.WriteLine("What is your name?");
-            string ex = Console.ReadLine();
-            Console.WriteLine("Why hello there " + ex);
+            //Console.WriteLine("Hello world!");
+            //Console.WriteLine("What is your name?");
+            //string ex = Console.ReadLine();
+            //Console.WriteLine("Why hello there " + ex);
 
             //primitive types
             int i = 10;
@@ -35,7 +61,7 @@ namespace CSharpBasics
             string[] strs = { "one", "two", "three" };
 
             //print the values using a formatting string
-            Console.WriteLine("{0},{1},{2}, i, c, b, str", i,c,b,str);
+            Console.WriteLine("{0},{1},{2}, i, c, b, str", i, c, b, str);
 
             //null reference will be printed as blank
             object obj = null;
@@ -67,20 +93,21 @@ namespace CSharpBasics
             Console.WriteLine(w % y);
 
             // logical operators
-            if((w-y) == 5)
+            if ((w - y) == 5)
             {
                 Console.WriteLine("10 - 5 is 5");
             }
 
-            if(true || false)
+            if (true || false)
             {
                 Console.WriteLine("true || false is always true");
             }
 
-            if((true || false) && (true && false))
+            if ((true || false) && (true && false))
             {
                 Console.WriteLine("Impossible to reach on current conditions");
-            } else
+            }
+            else
             {
                 Console.WriteLine("Always evaluates to false");
             }
@@ -91,7 +118,7 @@ namespace CSharpBasics
 
             str = "testing";
             str2 = null;
-            
+
             // Null coalescing operators
             // ?? means the left operand will be used if it is not null, if it is then use the right operand
             Console.WriteLine(str ?? "unknown string");
@@ -112,5 +139,7 @@ namespace CSharpBasics
             /// No return value
             /// </returns>
         }
+
+
     }
 }
