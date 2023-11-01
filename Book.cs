@@ -59,7 +59,7 @@ namespace ConsoleApp3
 
         public int PageCount
         {
-            // get and set will both 
+            // get and set will 
             get; set;
         }
     }
@@ -82,13 +82,13 @@ namespace ConsoleApp3
         // you can also overload the ToString function
         public string ToString(string format)
         {
-            if(format == 'B')
+            if(format == "B")
             {
                 return $"Book: {Name}:{Author}";
             }
-            if(format == 'F')
+            if(format == "F")
             {
-                return $"Book: {Name} by {Author} is {PageCount} pages;
+                return $"Book: {Name} by {Author} is {PageCount} pages";
             }
             return ToString();
         }
